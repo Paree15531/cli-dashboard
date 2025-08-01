@@ -1,0 +1,26 @@
+{
+  "name": "cli-dashboard-contrib",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "type": "module",
+  "bin": {
+    "cldc": "./bin/index.js"
+  },
+  "scripts": {
+    "start": "node bin/my-dashboard"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/blessed": "^0.1.25",
+    "@types/node": "^24.1.0",
+    "typecript": "0.0.1-security"
+  },
+  "dependencies": {
+    "blessed": "^0.1.81",
+    "blessed-contrib": "^4.11.0",
+    "systeminformation": "^5.27.7"
+  }
+}
