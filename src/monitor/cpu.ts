@@ -18,7 +18,7 @@ class CpuMonitor {
   //使用blessed-contrib的PictureElement来绘制折线图
   lineChart: contrib.Widgets.PictureElement;
   //存储cpu源数据
-  cpuData: Array<CpuData> =[];
+  cpuData: Array<CpuData> = [];
   //保存定时器
   interval: NodeJS.Timeout | null = null;
   constructor(line: contrib.Widgets.PictureElement) {
@@ -34,9 +34,8 @@ class CpuMonitor {
           style: {
             line: colors[index % colors.length],
           },
-          x: Array(60)
-            .fill(0)
-            .map((_, i) => 60 - i),
+          x: Array(60).fill(0),
+
           y: Array(60).fill(0),
         };
       });
@@ -45,7 +44,6 @@ class CpuMonitor {
 
       this.interval = setInterval(() => {
         si.currentLoad((data) => {
-          
           this.updateData(data);
         });
       }, 1000);
@@ -66,11 +64,10 @@ class CpuMonitor {
       //这块是为了模拟折线图滚动效果，从数组的开头删除一个元素，然后在末尾添加一个新的元素
       this.cpuData[index].y.shift();
       this.cpuData[index].y.push(cpu.load);
-      
     });
 
-    this.lineChart.setData(this.cpuData)
-    this.lineChart.screen.render()
+    this.lineChart.setData(this.cpuData);
+    this.lineChart.screen.render();
   }
 
   //销毁定时器
@@ -80,6 +77,7 @@ class CpuMonitor {
       this.cpuData = [];
     }
   }
+  
 }
 
 export { CpuMonitor };

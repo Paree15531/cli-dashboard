@@ -17,9 +17,7 @@ class CpuMonitor {
                     style: {
                         line: colors[index % colors.length],
                     },
-                    x: Array(60)
-                        .fill(0)
-                        .map((_, i) => 60 - i),
+                    x: Array(60).fill(0),
                     y: Array(60).fill(0),
                 };
             });
